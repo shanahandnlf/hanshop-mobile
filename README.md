@@ -28,11 +28,27 @@ Stateful widget berarti widget yang memiliki state, artinya widget tersebut meng
 - Sebutkan seluruh widget yang kamu gunakan untuk menyelesaikan tugas ini dan jelaskan fungsinya masing-masing.
 
 Berdasarkan main.dart dan menu.dart, widget yang digunakan adalah sebagai berikut:
-1. MyApp: merupakan class yang merupakan turunan dari StatelessWidget. Class ini digunakan untuk membuat widget yang merupakan root dari aplikasi Flutter.
-2. MyHomePage: merupakan class yang merupakan turunan dari StatefulWidget. Class ini digunakan untuk membuat widget yang merupakan halaman utama dari aplikasi Flutter.
-3. ShopCard: merupakan class yang merupakan turunan dari StatelessWidget. Class ini digunakan untuk membuat widget yang merupakan card untuk menampilkan informasi dari sebuah item.
-4. ShopItem: merupakan class yang merupakan turunan dari StatelessWidget. Class ini digunakan untuk membuat widget yang merupakan item dari sebuah item.
-5. ShopList: merupakan class yang merupakan turunan dari StatelessWidget. Class ini digunakan untuk membuat widget yang merupakan list dari item-item yang ada.
+1. Scaffold: Widget yang digunakan untuk membuat kerangka dasar tampilan dengan desain berbasis material sebagai dasar tata letak visual.
+
+2. AppBar: Sebuah kontainer yang terletak di bagian atas tampilan dan digunakan untuk menampilkan konten dan fitur aplikasi.
+
+3. Text: Widget untuk menampilkan teks dalam antarmuka pengguna.
+
+4. Column: Widget yang mengatur tata letak elemen-elemen anak secara vertikal, mengurutkan mereka dari atas ke bawah.
+
+5. SingleChildScrollView: Sebuah wrapper widget yang memungkinkan kontennya dapat di-scroll, baik secara horizontal maupun vertikal.
+
+6. Icon: Widget yang digunakan untuk menampilkan ikon tertentu dalam antarmuka pengguna.
+
+7. Padding: Widget yang digunakan untuk mengatur jarak atau posisi elemen-elemen anak di dalamnya.
+
+8. GridView: Widget yang digunakan untuk menampilkan daftar elemen dalam bentuk grid, baik secara horizontal maupun vertikal.
+
+9. Container: Widget yang digunakan sebagai wadah untuk mengelompokkan beberapa komponen yang memiliki karakteristik serupa.
+
+10. Center: Widget yang digunakan untuk mengatur posisi elemen anaknya di tengah layar.
+
+11. Theme: Widget yang digunakan untuk mengatur tema dan gaya visual aplikasi secara global.
 
 
 - Jelaskan bagaimana cara kamu mengimplementasikan checklist di atas secara step-by-step (bukan hanya sekadar mengikuti tutorial)
@@ -185,6 +201,7 @@ Kode ini akan membuat widget yang menampilkan tiga tombol dengan ikon dan teks y
     - Menambah item (Tambah Item)
     - Logout (Logout)
 
+Menambahkan kode ini pada menu.dart
 ````
 class ShopCard extends StatelessWidget {
   final ShopItem item;
@@ -255,7 +272,7 @@ final List<ShopItem> items = [
     - "Kamu telah menekan tombol Lihat Item" ketika tombol Lihat Item ditekan.
     - "Kamu telah menekan tombol Tambah Item" ketika tombol Tambah Item ditekan.
     - "Kamu telah menekan tombol Logout" ketika tombol Logout ditekan.
-
+menambahkan kode  pada bagian Widget build pada class ShopCard
 ````
 class ShopCard extends StatelessWidget {
   final ShopItem item;
@@ -291,4 +308,39 @@ final List<ShopItem> items = [
   ShopItem("Tambah Item", Colors.blue, Icons.add_shopping_cart),
   ShopItem("Logout", Colors.green, Icons.logout),
 ];
+````
+
+4. Implementasi bonus, membuat tombold dengan warna berbeda untuk setiap tombolnya.
+menambahkan atribut color
+````
+class ShopItem {
+  final String name;
+  final MaterialColor color; // for color
+  final IconData icon;
+
+
+  ShopItem(this.name, this.color, this.icon);
+}
+````
+
+menambahkan color yang diinginkan
+````
+final List<ShopItem> items = [
+  ShopItem("Lihat Item", Colors.red, Icons.checklist), // add warna buat semua tombol
+  ShopItem("Tambah Item", Colors.blue, Icons.add_shopping_cart),
+  ShopItem("Logout", Colors.green, Icons.logout),
+];
+````
+Pemanggilan warna
+````
+class ShopCard extends StatelessWidget {
+  final ShopItem item;
+
+  const ShopCard(this.item, {super.key}); // Constructor
+
+  @override
+  Widget build(BuildContext context) {
+    return Material(
+      color: item.color,
+      ...
 ````
