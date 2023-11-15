@@ -444,6 +444,8 @@ Pertama membuat folder screens dan widget baru di dalam lib, kemudian memindahka
   - Setiap elemen input di formulir juga harus divalidasi dengan ketentuan sebagai berikut:
     - Setiap elemen input tidak boleh kosong.
     - Setiap elemen input harus berisi data dengan tipe data atribut modelnya.
+
+    
 Membuat shoplist_form.dart pada folder screens dan menambahkan kode berikut. ShopFormPage merupakan turunan dari StatefulWidget, sehingga memiliki state yang dapat diubah.
 
 
