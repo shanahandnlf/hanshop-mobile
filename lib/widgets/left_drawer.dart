@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:hanshop/screens/item_list.dart';
 import 'package:hanshop/screens/menu.dart';
 import 'package:hanshop/screens/shoplist_form.dart';
 
@@ -64,6 +65,18 @@ class LeftDrawer extends StatelessWidget {
                   context,
                   MaterialPageRoute(
                       builder: (context) => ShopFormPage()
+                  ));
+            },
+          ),
+          ListTile(
+            leading: const Icon(Icons.home_outlined),
+            title: const Text('Lihat Item'),
+            // Bagian redirection ke MyHomePage
+            onTap: () {
+              Navigator.pushReplacement(
+                  context,
+                  MaterialPageRoute(
+                    builder: (context) => ItemPage(),
                   ));
             },
           ),

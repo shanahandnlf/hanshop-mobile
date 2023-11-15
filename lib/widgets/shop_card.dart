@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:hanshop/screens/item_list.dart';
 import 'package:hanshop/screens/shoplist_form.dart';
 
 
@@ -26,6 +27,13 @@ class ShopCard extends StatelessWidget {
                 context,
                 MaterialPageRoute(
                     builder: (context) => ShopFormPage()
+                ));
+          }
+          if (item.name == "Lihat Item"){
+            Navigator.push(
+                context,
+                MaterialPageRoute(
+                    builder: (context) => ItemPage()
                 ));
           }
         },

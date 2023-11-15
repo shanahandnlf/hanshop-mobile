@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:hanshop/widgets/left_drawer.dart';
+import 'package:hanshop/screens/item_list.dart';
 
+final List<Item> itemList = [];
 
 class ShopFormPage extends StatefulWidget {
   const ShopFormPage({super.key});
@@ -173,6 +175,13 @@ class _ShopFormPageState extends State<ShopFormPage> {
                                       child: const Text('OK'),
                                       onPressed: () {
                                         Navigator.pop(context);
+                                        Item item = Item(
+                                          _name,
+                                          _amount,
+                                          _description,
+                                          _price,
+                                        );
+                                        itemList.add(item);
                                       },
                                     ),
                                   ],
