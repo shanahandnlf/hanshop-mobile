@@ -829,3 +829,49 @@ Routing ke halaman utama dan halaman form tambah item baru sudah dibuat dengan k
                   ));
             },
 ````
+
+# PBP Tugas 9
+1. Apakah bisa kita melakukan pengambilan data JSON tanpa membuat model terlebih dahulu? Jika iya, apakah hal tersebut lebih baik daripada membuat model sebelum melakukan pengambilan data JSON?
+
+Bisa, namun hal tersebut tidak disarankan karena akan menyulitkan kita dalam mengelola data yang telah diambil. Dengan membuat model terlebih dahulu, kita dapat mengelola data yang telah diambil dengan lebih mudah.
+
+Keuntungan memakai model adalah kita dapat mengelola data yang telah diambil dengan lebih mudah, seperti membantu validasi data yang diambil
+
+2. Jelaskan fungsi dari CookieRequest dan jelaskan mengapa instance CookieRequest perlu untuk dibagikan ke semua komponen di aplikasi Flutter.
+
+CookieRequest adalah implementasi manajemen authentication pada aplikasi flutter dengan cookies. Fungsinya antara lain untuk menyimpan cookies, mengambil cookies, dan menghapus cookies. Instance CookieRequest perlu dibagikan ke semua komponen di aplikasi Flutter agar dapat digunakan oleh semua komponen tersebut.
+
+CookieRequest digunakan untuk membantu pemeliharaan status login dan autentikasi, serta membuat manajemen cookies menjadi konsisten di seluruh aplikasi
+
+3. Jelaskan mekanisme pengambilan data dari JSON hingga dapat ditampilkan pada Flutter.
+
+Data akan diambil melalui URL response dari proyek Django yang ditentukan, kemudian akan diubah menjadi format JSON. Setelah itu, akan dibuat daftar item yang berisi elemen Item yang merupakan hasil dekoding JSON tadi. FutureBuilder memberikan kemampuan untuk memanggil hasil dari fungsi asinkron (async) yang mengambil item. Setelah itu, akan dibuat widget ListView yang berisi daftar item yang telah dibuat sebelumnya.
+
+4. Jelaskan mekanisme autentikasi dari input data akun pada Flutter ke Django hingga selesainya proses autentikasi oleh Django dan tampilnya menu pada Flutter.
+
+Server django menerima request kemudian melakukan autentikasi. Jika autentikasi berhasil, django mengirimakan respon sukses dan data pengguna. Kalau gagal, django mengirim pesan dengan pesan kesalahan. Flutter menerima respon dari django dan memeriksa apakah autentikasi berhasil. Jika berhasil, aplikasi akan diarahkan ke halaman utama. Jika gagal, aplikasi akan menampilkan pesan kesalahan.
+
+5. Sebutkan seluruh widget yang kamu pakai pada tugas ini dan jelaskan fungsinya masing-masing.
+
+
+AppBar: AppBar menampilkan widget toolbar, leading, title, dan actions di atas bagian bawah (jika ada).
+Column: Widget yang menampilkan anak-anaknya dalam susunan vertikal.
+
+Scaffold: Scaffold adalah kelas di Flutter yang menyediakan banyak widget atau API seperti Drawer, Snack-Bar, Bottom-Navigation-Bar, 
+
+Floating-Action-Button, App-Bar, dll. Scaffold akan memperluas atau mengisi seluruh layar perangkat. Ini akan mengambil ruang yang tersedia. Scaffold akan menyediakan kerangka kerja untuk mengimplementasikan tata letak dasar desain material dari aplikasi.
+
+Container: Widget kenyamanan yang menggabungkan widget umum untuk melukis, menempatkan, dan menentukan ukuran.
+
+TextField: TextField memungkinkan pengguna memasukkan teks, baik dengan keyboard fisik atau dengan keyboard di layar.
+ElevatedButton: Tombol yang ditinggikan adalah label anak yang ditampilkan pada widget Material yang Material.elevation-nya meningkat ketika tombol ditekan.
+
+FutureBuilder: Widget yang membangun dirinya berdasarkan snapshot terbaru dari interaksi dengan Future.
+
+SnackBar: SnackBar adalah widget Flutter yang memungkinkan Anda untuk sementara menampilkan pesan pop-up di aplikasi Anda.
+
+Navigator: Widget yang mengelola serangkaian widget anak dengan disiplin tumpukan.
+
+ListView.builder: Konstruktor ListView.builder mengambil IndexedWidgetBuilder, yang membangun anak-anak secara on demand.
+
+6. Jelaskan bagaimana cara kamu mengimplementasikan checklist di atas secara step-by-step! (bukan hanya sekadar mengikuti tutorial).
