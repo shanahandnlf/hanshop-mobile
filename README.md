@@ -868,7 +868,7 @@ ElevatedButton: Tombol yang ditinggikan adalah label anak yang ditampilkan pada 
 
 FutureBuilder: Widget yang membangun dirinya berdasarkan snapshot terbaru dari interaksi dengan Future.
 
-SnackBar: SnackBar adalah widget Flutter yang memungkinkan Anda untuk sementara menampilkan pesan pop-up di aplikasi Anda.
+SnackBar: SnackBar adalah widget Flutter yang memungkinkan untuk sementara menampilkan pesan pop-up di aplikasi Anda.
 
 Navigator: Widget yang mengelola serangkaian widget anak dengan disiplin tumpukan.
 
@@ -1239,6 +1239,78 @@ class _ProductPageState extends State<ProductPage> {
                 }
               }
             }));
+  }
+}
+````
+
+untuk membuat detail item page buatlah file detail_item.dart pada folder screens dan tambahkan kode berikut
+````
+import 'package:flutter/material.dart';
+
+import '../models/item.dart';
+import '../widgets/left_drawer.dart';
+
+
+class DetailItemPage extends StatefulWidget {
+  final Item item;
+
+  const DetailItemPage({super.key, required this.item});
+
+  @override
+  State<DetailItemPage> createState() => _DetailItemPageState();
+}
+
+class _DetailItemPageState extends State<DetailItemPage> {
+  @override
+  Widget build(BuildContext context) {
+    return Scaffold(
+      appBar: AppBar(
+        title: const Center(
+          child: Text(
+            'Detail Item',
+          ),
+        ),
+        backgroundColor: Colors.indigo,
+        foregroundColor: Colors.white,
+      ),
+      drawer: const LeftDrawer(),
+      body: Center(
+        child: Column(
+          mainAxisAlignment: MainAxisAlignment.center,
+          crossAxisAlignment: CrossAxisAlignment.center,
+          children: [
+            const Text(
+              'Item Name:',
+              style: TextStyle(fontSize: 24, fontWeight: FontWeight.bold),
+            ),
+            Text(
+              widget.item.fields.name,
+              style: const TextStyle(fontSize: 36, fontWeight: FontWeight.bold),
+            ),
+            const SizedBox(height: 20),
+            Text(
+              'Amount: ${widget.item.fields.amount}',
+              style: const TextStyle(fontSize: 18),
+            ),
+            Text(
+              'Description: ${widget.item.fields.description}',
+              style: const TextStyle(fontSize: 18),
+            ),
+            Text(
+              'Price': ${widget.item.fields.price}',
+              style: const TextStyle(fontSize: 18),
+            ),
+            ElevatedButton(
+              onPressed: () {
+                // Navigasi kembali ketika tombol ditekan
+                Navigator.pop(context);
+              },
+              child: const Text('Kembali'),
+            ),
+          ],
+        ),
+      ),
+    );
   }
 }
 ````

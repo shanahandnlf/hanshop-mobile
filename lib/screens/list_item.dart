@@ -4,6 +4,8 @@ import 'dart:convert';
 import 'package:hanshop/models/item.dart';
 import 'package:hanshop/widgets/left_drawer.dart';
 
+import 'detail_item.dart';
+
 class ProductPage extends StatefulWidget {
   const ProductPage({Key? key}) : super(key: key);
 
@@ -70,7 +72,7 @@ class _ProductPageState extends State<ProductPage> {
                           crossAxisAlignment: CrossAxisAlignment.start,
                           children: [
                             Text(
-                              "${snapshot.data![index].fields.name}",
+                              "${index + 1}.${snapshot.data![index].fields.name}",
                               style: const TextStyle(
                                 fontSize: 18.0,
                                 fontWeight: FontWeight.bold,
@@ -83,7 +85,17 @@ class _ProductPageState extends State<ProductPage> {
                                 "${snapshot.data![index].fields.description}"),
                             const SizedBox(height: 10),
                             Text("${snapshot.data![index].fields.price}"),
-
+                            ElevatedButton(
+                                        onPressed: () {
+                                        Navigator.push(
+                                          context,
+                                          MaterialPageRoute(
+                                            builder: (context) => DetailItemPage(item: snapshot.data![index]),
+                                          ),
+                                        );
+                                      },
+                                      child: const Text('Detail Item'),
+                                    ),
                           ],
                         ),
                       ));
